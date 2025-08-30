@@ -23,6 +23,13 @@ CREATE TABLE Customers(
 	address TEXT
 );
 
+CREATE TABLE IF NOT EXISTS Orders (
+	order_id INT AUTO_INCREMENT PRIMARY KEY,
+	customer_id INT NOT NULL,
+	order_date DATE,
+	FOREIGN KEY (customer_id) REFERENCES Customers(customer_id)
+);
+
 CREATE TABLE Order_Details(
 	orderdetailid INT AUTO_INCREMENT PRIMARY KEY,
 	order_id INT,
